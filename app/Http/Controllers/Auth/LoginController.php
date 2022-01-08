@@ -55,8 +55,10 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         } else {
-            return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+                'password' => 'The provided credentials do not match our records.',
+            ]);
         }
     }
 }
