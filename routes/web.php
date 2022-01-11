@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -22,5 +23,5 @@ Auth::routes(['register' => false]);
 Route::get('/', function () {
     return redirect()->route('login');
 });
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'adminHome'])->name('home')->middleware('is_admin');
+Route::resource('products', ProductController::class);
