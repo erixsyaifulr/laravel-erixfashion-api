@@ -34,10 +34,11 @@
                                         <a href="#" class="btn btn-info btn-sm">
                                             <i class="fa fa-picture-o"></i>
                                         </a>
-                                        <a href="#" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('products.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="#" method="post" class="d-inline">
+                                        <form action="{{ route('products.destroy', $item->id) }}" method="post" class="d-inline">
+                                            @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm">
                                                 <i class="fa fa-trash"></i>
@@ -46,7 +47,9 @@
                                     </td>
                                 </tr>
                                 @empty
-
+                                <tr>
+                                    <td colspan="6" class="text-center p-5"></td>
+                                </tr>
                                 @endforelse
                             </tbody>
                         </table>
