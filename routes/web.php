@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\ProductGalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +24,6 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 Route::get('home', [HomeController::class, 'adminHome'])->name('home')->middleware('is_admin');
+Route::get('products/{id}/gallery', [ProductController::class, 'gallery'])->name('products.gallery');
 Route::resource('products', ProductController::class);
+Route::resource('products-galleries', ProductGalleryController::class);
