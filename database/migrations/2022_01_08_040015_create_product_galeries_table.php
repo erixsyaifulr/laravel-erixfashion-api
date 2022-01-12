@@ -13,7 +13,7 @@ class CreateProductGaleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_galeries', function (Blueprint $table) {
+        Schema::create('product_galleries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('products_id');
             $table->string('photo');
