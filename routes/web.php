@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,5 @@ Route::get('home', [HomeController::class, 'adminHome'])->name('home')->middlewa
 Route::get('products/{id}/gallery', [ProductController::class, 'gallery'])->name('products.gallery');
 Route::resource('products', ProductController::class);
 Route::resource('products-galleries', ProductGalleryController::class);
+Route::get('transactions/{id}/set-status', [TransactionController::class, 'setStatus'])->name('transactions.status');
+Route::resource('transactions', TransactionController::class);
