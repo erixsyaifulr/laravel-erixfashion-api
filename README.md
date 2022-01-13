@@ -14,4 +14,4 @@ Features
 - CRUD data transaksi
 - Dashboard 
 
-##Thanks
+## Thanks
